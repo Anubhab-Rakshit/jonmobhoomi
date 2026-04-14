@@ -32,20 +32,20 @@ const STATS_DATA = [
 
 export default function StatsGrid() {
   return (
-    <div className="grid grid-cols-4 gap-3 mb-6">
+    <div className="grid grid-cols-4 gap-4 mb-6">
       {STATS_DATA.map((stat) => (
         <div 
           key={stat.label} 
-          className="bg-white border border-border rounded-lg p-5 hover:border-green-primary/20 transition-colors"
+          className="bg-white border border-border rounded-xl p-6 hover:border-green-primary/20 transition-colors"
         >
-          <span className="block text-xs font-bold text-text-muted uppercase tracking-widest mb-3">
+          <span className="block text-[11px] font-bold text-text-muted uppercase tracking-widest mb-4">
              {stat.label}
           </span>
           <div className="flex items-baseline gap-2">
-             <span className={`font-display font-bold text-2xl leading-none ${stat.value === '148' ? 'text-[#B5621E]' : 'text-text-dark'}`}>
+             <span className={`font-display font-bold text-3xl leading-none ${stat.value === '148' ? 'text-[#B5621E]' : 'text-text-dark'}`}>
                 {stat.value}
              </span>
-             <span className={`text-xs font-semibold ${stat.color} tracking-tight`}>
+             <span className={`text-sm font-semibold ${stat.color} tracking-tight`}>
                 {stat.accent}
              </span>
           </div>

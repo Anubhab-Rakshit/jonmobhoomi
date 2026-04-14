@@ -23,26 +23,26 @@ export default function DashboardPage() {
             </svg>
          </div>
 
-         <div className="relative z-10 w-full px-6 py-6">
+         <div className="relative z-10 w-full px-8 py-8">
             <DashboardHeader />
             <StatsGrid />
 
-            <div className="flex gap-6">
+            <div className="flex gap-8">
                {/* Left Column */}
                <div className="flex-1 min-w-0">
                   <ParcelList />
                </div>
 
                {/* Right Column */}
-               <div className="w-80 flex-shrink-0 flex flex-col gap-6">
+               <div className="w-96 flex-shrink-0 flex flex-col gap-8">
                   <ActivityTimeline />
                   <GeoMapPreview />
                </div>
             </div>
 
-            <footer className="mt-12 pt-6 border-t border-border flex justify-between items-center text-text-muted text-xs font-body">
+            <footer className="mt-16 pt-8 border-t border-border flex justify-between items-center text-text-muted text-xs font-body">
                <p>© 2026 BhumiChain Registry Platform</p>
-               <div className="flex gap-4">
+               <div className="flex gap-6">
                   <span>Privacy Policy</span>
                   <span>Terms of Service</span>
                   <span>Support Hub</span>

@@ -36,26 +36,26 @@ const PARCELS = [
 
 export default function ParcelList() {
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex justify-between items-center mb-3">
-         <h2 className="font-display font-semibold text-lg text-text-dark">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center mb-4">
+         <h2 className="font-display font-semibold text-xl text-text-dark">
             My Land Parcels
          </h2>
-         <button className="text-xs font-bold text-green-primary hover:underline">
+         <button className="text-sm font-bold text-green-primary hover:underline">
             Register New +
          </button>
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         {PARCELS.map((parcel) => (
           <motion.div
             key={parcel.id}
-            whileHover={{ y: -1 }}
-            className="group relative bg-white border border-border rounded-lg flex shadow-sm hover:shadow-md transition-all h-28"
+            whileHover={{ y: -2 }}
+            className="group relative bg-white border border-border rounded-xl flex shadow-sm hover:shadow-md transition-all h-32"
           >
             {/* Left Status Strip */}
             <div 
-              className="w-6 flex items-center justify-center flex-shrink-0 rounded-l-lg"
+              className="w-8 flex items-center justify-center flex-shrink-0 rounded-l-xl"
               style={{ backgroundColor: parcel.status === 'Verified' ? '#1B824B' : parcel.status === 'Pending' ? '#D98934' : parcel.color }}
             >
               <span className="-rotate-90 text-white font-medium text-xs tracking-wide whitespace-nowrap">
@@ -64,22 +64,22 @@ export default function ParcelList() {
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 p-4 flex flex-col justify-center">
-               <p className="text-xs font-medium text-text-muted mb-0.5">
+            <div className="flex-1 p-6 flex flex-col justify-center">
+               <p className="text-xs font-semibold text-text-muted mb-1 uppercase tracking-wider">
                   {parcel.id === '1' ? 'Fraunes Number' : 'Survey Number'}
                </p>
-               <p className="font-display text-2xl text-text-dark leading-none mb-1.5">
+               <p className="font-display text-3xl text-text-dark leading-none mb-2">
                   {parcel.surveyNo}
                </p>
-               <p className="text-xs text-text-dark">{parcel.location}</p>
+               <p className="text-sm text-text-dark">{parcel.location}</p>
                <p className="text-xs text-text-muted mt-2">
                   NFT ID: {parcel.nftId}
                </p>
             </div>
 
             {/* Map Thumbnail & Buttons */}
-            <div className="w-40 p-4 flex flex-col justify-between items-end flex-shrink-0">
-               <div className="w-full h-16 bg-bg-darker relative flex items-center justify-center overflow-hidden rounded-lg">
+            <div className="w-48 p-5 flex flex-col justify-between items-end flex-shrink-0">
+               <div className="w-full h-20 bg-bg-darker relative flex items-center justify-center overflow-hidden rounded-lg">
                   <svg viewBox="0 0 100 80" className="w-full h-full" preserveAspectRatio="xMidYMid slice" style={{ filter: `drop-shadow(0 0 6px ${parcel.color}88)` }}>
                      <rect width="100%" height="100%" fill="#0F2318"/>
                      {[20,40,60,80].map(v => (
@@ -111,11 +111,11 @@ export default function ParcelList() {
                </div>
                
                <div className="flex gap-2 w-full justify-between mt-auto">
-                  <button className="flex-1 py-1.5 px-2 border border-border rounded text-xs text-text-dark hover:bg-zinc-50 flex items-center justify-center gap-1 transition-colors">
-                     View <IconEye size={12} />
+                  <button className="flex-1 py-2 px-3 border border-border rounded-lg text-xs text-text-dark hover:bg-gray-50 flex items-center justify-center gap-1 transition-colors font-medium">
+                     View <IconEye size={14} />
                   </button>
-                  <button className="flex-1 py-1.5 px-2 bg-[#1B3A2D] border border-[#1B3A2D] text-white rounded text-xs flex items-center justify-center gap-1 hover:bg-[#254F3D] transition-colors">
-                     Actions <IconArrowRight size={12} />
+                  <button className="flex-1 py-2 px-3 bg-green-primary border border-green-primary text-white rounded-lg text-xs flex items-center justify-center gap-1 hover:bg-green-primary/90 transition-colors font-medium">
+                     Actions <IconArrowRight size={14} />
                   </button>
                </div>
             </div>
