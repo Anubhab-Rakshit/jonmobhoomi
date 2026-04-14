@@ -12,7 +12,7 @@ const EVENTS = [
 
 export default function ActivityTimeline() {
   return (
-    <div className="bg-[#FAF5ED] border border-border rounded-xl p-5 h-full flex flex-col">
+    <div className="bg-[#FAF5ED] border border-border rounded-[14px] p-6 h-full flex flex-col min-h-[360px]">
       <div className="flex justify-between items-center mb-6">
          <h2 className="font-display font-bold text-[18px] text-text-dark">
             Activity Timeline
@@ -24,7 +24,7 @@ export default function ActivityTimeline() {
          </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto no-scrollbar relative pr-2">
+      <div className="flex-1 overflow-y-auto no-scrollbar relative pr-3">
          {/* Vertical Line */}
          <div className="absolute left-[3px] top-2 bottom-5 w-[1px] bg-border" />
 
@@ -44,11 +44,11 @@ export default function ActivityTimeline() {
                   style={{ backgroundColor: event.color }}
                 />
 
-                <div className="flex justify-between items-center mb-0.5">
-                   <span className="font-mono text-[13px] text-text-dark">
+                <div className="flex justify-between items-center mb-0.5 gap-3">
+                   <span className="font-mono text-[13px] text-text-dark truncate">
                       {event.address}
                    </span>
-                   <span className="text-[12px] text-text-muted">
+                   <span className="text-[12px] text-text-muted flex-shrink-0">
                       {event.time}
                    </span>
                 </div>

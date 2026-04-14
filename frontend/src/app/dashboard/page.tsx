@@ -16,36 +16,38 @@ export default function DashboardPage() {
       <div className="flex-1 overflow-y-auto h-screen relative no-scrollbar">
          {/* Subtle Topo deco overlay (same as landing but lower opacity) */}
          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.03]">
-            <svg width="100%" height="200%" viewBox="0 0 1000 2000" fill="none">
+            <svg width="100%" height="200%" viewBox="0 0 1000 2000" fill="none" preserveAspectRatio="xMidYMid slice">
                <path d="M0 200 Q250 150 500 250 T1000 200" stroke="#1B2F1A" strokeWidth="0.5" />
                <path d="M0 600 Q300 500 700 700 T1000 650" stroke="#1B2F1A" strokeWidth="0.5" />
                <path d="M0 1000 Q400 1100 800 900 T1000 1050" stroke="#1B2F1A" strokeWidth="0.5" />
             </svg>
          </div>
 
-         <div className="relative z-10 w-full max-w-[1440px] px-10 py-8">
-            <DashboardHeader />
+         <div className="relative z-10 w-full px-8 py-8">
+            <div className="max-w-[1600px] mx-auto">
+               <DashboardHeader />
 
-            <div className="flex gap-6 mt-6">
-               <div className="w-[65%] flex flex-col gap-6">
-                  <StatsGrid />
-                  <ParcelList />
+               <div className="flex gap-8 mt-8">
+                  <div className="flex-1 flex flex-col gap-6">
+                     <StatsGrid />
+                     <ParcelList />
+                  </div>
+
+                  <div className="w-[380px] flex flex-col gap-6">
+                     <ActivityTimeline />
+                     <GeoMapPreview />
+                  </div>
                </div>
 
-               <div className="w-[35%] flex flex-col gap-6">
-                  <ActivityTimeline />
-                  <GeoMapPreview />
-               </div>
+               <footer className="mt-12 pt-8 border-t border-border flex justify-between items-center text-text-pale text-[12px] font-body">
+                  <p>© 2026 BhumiChain Registry Platform</p>
+                  <div className="flex gap-4">
+                     <span>Privacy Policy</span>
+                     <span>Terms of Service</span>
+                     <span>Support Hub</span>
+                  </div>
+               </footer>
             </div>
-
-            <footer className="mt-12 pt-8 border-t border-border flex justify-between items-center text-text-pale text-[12px] font-body">
-               <p>© 2026 BhumiChain Registry Platform</p>
-               <div className="flex gap-4">
-                  <span>Privacy Policy</span>
-                  <span>Terms of Service</span>
-                  <span>Support Hub</span>
-               </div>
-            </footer>
          </div>
       </div>
 
