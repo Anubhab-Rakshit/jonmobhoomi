@@ -1,0 +1,33 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Node dependency fallbacks
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment secrets (global)
+.env
+.env.local
+
+# Sub-directory build artifacts (if accidentally moved to root)
+dist/
+build/
+.next/
+out/
+
+.claude/

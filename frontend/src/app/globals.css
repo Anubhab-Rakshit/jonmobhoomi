@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Backgrounds */
+  --color-bg-page: #F5F0E8;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-dark: #1B3A2D;
+  --color-bg-darker: #0F2318;
+  --color-bg-card-dark: #243B2F;
+
+  /* Greens */
+  --color-green-primary: #2D6A4F;
+  --color-green-accent: #40916C;
+  --color-green-bright: #52B788;
+  --color-green-glow: #74C69D;
+  --color-green-pale: #D8F3DC;
+
+  /* Ambers & Alerts */
+  --color-amber-land: #B5621E;
+  --color-amber-pale: #FFF3E0;
+  --color-red-alert: #9B2226;
+
+  /* Text */
+  --color-text-dark: #1B2F1A;
+  --color-text-body: #3D5A47;
+  --color-text-muted: #7A9E87;
+  --color-text-pale: #B8CFBE;
+  --color-text-on-dark: #F0EDE6;
+  --color-text-on-dark-muted: #8FAF99;
+
+  /* Borders */
+  --color-border: rgba(27, 47, 26, 0.1);
+  --color-border-medium: rgba(27, 47, 26, 0.18);
+  --color-border-dark: rgba(240, 237, 230, 0.08);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-card: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card-depth: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 8px 32px rgba(27, 47, 26, 0.1);
+  --shadow-clay: 0 6px 0 rgba(27, 47, 26, 0.25);
+  --shadow-clay-hover: 0 8px 0 rgba(27, 47, 26, 0.25);
+  --shadow-parcel-glow: 0 0 20px rgba(82, 183, 136, 0.4);
+
+  /* Animations */
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.08); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+:root {
+  --bg-page: #F5F0E8;
+  --bg-surface: #FFFFFF;
+  --bg-dark: #1B3A2D;
+  --bg-darker: #0F2318;
+  --bg-card-dark: #243B2F;
+
+  --green-primary: #2D6A4F;
+  --green-accent: #40916C;
+  --green-bright: #52B788;
+  --green-glow: #74C69D;
+  --green-pale: #D8F3DC;
+
+  --amber-land: #B5621E;
+  --amber-pale: #FFF3E0;
+  --red-alert: #9B2226;
+
+  --text-dark: #1B2F1A;
+  --text-body: #3D5A47;
+  --text-muted: #7A9E87;
+  --text-pale: #B8CFBE;
+  --text-on-dark: #F0EDE6;
+  --text-on-dark-muted: #8FAF99;
+
+  --border: rgba(27, 47, 26, 0.1);
+  --border-medium: rgba(27, 47, 26, 0.18);
+  --border-dark: rgba(240, 237, 230, 0.08);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-card: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+}
+
+/* ─── Reset ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  cursor: none;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Selection ─────────────────────────────────────── */
+::selection {
+  background: rgba(82, 183, 136, 0.2);
+  color: var(--text-dark);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 106, 79, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 106, 79, 0.55);
+}
+
+/* ─── Focus ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--green-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Typography Scale ───────────────────────────────── */
+.text-hero {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.text-small {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-tiny {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ─── Effects ────────────────────────────────────────── */
+
+/* Glassmorphism – light surface */
+.glass-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Glassmorphism – dark surface */
+.glass-dark {
+  background: rgba(15, 35, 24, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(240, 237, 230, 0.1);
+}
+
+/* Card depth shadow */
+.card-depth {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 8px 32px rgba(27, 47, 26, 0.1);
+}
+
+/* Claymorphism button base */
+.btn-clay {
+  position: relative;
+  box-shadow: 0 6px 0 rgba(27, 47, 26, 0.25);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.btn-clay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(27, 47, 26, 0.25);
+}
+
+.btn-clay:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 rgba(27, 47, 26, 0.25);
+}
+
+/* Parcel glow */
+.parcel-glow {
+  filter: drop-shadow(0 0 10px rgba(82, 183, 136, 0.5));
+}
+
+/* ─── Topographic Lines SVG background helper ────────── */
+.topo-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.topo-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cpath d='M0 200 Q200 180 400 220 Q600 260 800 200' fill='none' stroke='%231B2F1A' stroke-width='1' opacity='0.06'/%3E%3Cpath d='M0 300 Q200 270 400 320 Q600 370 800 300' fill='none' stroke='%231B2F1A' stroke-width='1' opacity='0.06'/%3E%3Cpath d='M0 400 Q200 380 400 420 Q600 460 800 400' fill='none' stroke='%231B2F1A' stroke-width='1' opacity='0.05'/%3E%3Cpath d='M0 500 Q200 475 400 510 Q600 550 800 490' fill='none' stroke='%231B2F1A' stroke-width='1' opacity='0.05'/%3E%3Cpath d='M0 600 Q200 580 400 610 Q600 640 800 600' fill='none' stroke='%231B2F1A' stroke-width='1' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Utility Helpers ────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Fraunces italic accent words */
+.accent-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  background: linear-gradient(135deg, var(--green-bright), var(--green-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mono addresses / hashes */
+.address {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  background: rgba(82, 183, 136, 0.06);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}

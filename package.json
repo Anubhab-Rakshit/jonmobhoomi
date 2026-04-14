@@ -1,0 +1,27 @@
+{
+  "name": "jonmo-bhoomi",
+  "version": "1.0.0",
+  "description": "Decentralized Land Ownership System on Stellar Soroban",
+  "scripts": {
+    "test": "jest",
+    "build": "npm run build:contracts && npm run build:backend",
+    "build:contracts": "npm run build:access_control && npm run build:boundary_hash && npm run build:land_registry && npm run build:ownership_nft && npm run build:rwa_micro_share_pool && npm run build:dispute_arbitration && npm run build:escrow",
+    "build:access_control": "cd contracts/access_control && cargo build --target wasm32-unknown-unknown --release",
+    "build:boundary_hash": "cd contracts/boundary_hash && cargo build --target wasm32-unknown-unknown --release",
+    "build:land_registry": "cd contracts/land_registry && cargo build --target wasm32-unknown-unknown --release",
+    "build:ownership_nft": "cd contracts/ownership_nft && cargo build --target wasm32-unknown-unknown --release",
+    "build:rwa_micro_share_pool": "cd contracts/rwa_micro_share_pool && cargo build --target wasm32-unknown-unknown --release",
+    "build:dispute_arbitration": "cd contracts/dispute_arbitration && cargo build --target wasm32-unknown-unknown --release",
+    "build:escrow": "cd contracts/escrow && cargo build --target wasm32-unknown-unknown --release",
+    "build:backend": "cd backend && npm run build",
+    "start:backend": "cd backend && npm run start",
+    "deploy": "node scripts/deploy.js"
+  },
+  "workspaces": [
+    "contracts/*",
+    "backend"
+  ],
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
