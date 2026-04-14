@@ -26,31 +26,31 @@ const TESTIMONIALS = [
 
 function MarqueeCard({ item }: { item: typeof TESTIMONIALS[0] }) {
   return (
-    <div className="w-[300px] flex-shrink-0 mx-2 glass-dark p-6 rounded-[16px] border border-white/5 relative group hover:border-green-glow/20 transition-colors">
+    <div className="w-[280px] flex-shrink-0 mx-1.5 glass-dark p-5 rounded-[14px] border border-white/5 relative group hover:border-green-glow/20 transition-colors">
        {/* Quote Icon */}
-       <svg className="absolute top-4 left-4 w-8 h-8 opacity-[0.15] text-green-glow pointer-events-none" fill="currentColor" viewBox="0 0 32 32">
+       <svg className="absolute top-4 left-4 w-6 h-6 opacity-[0.15] text-green-glow pointer-events-none" fill="currentColor" viewBox="0 0 32 32">
           <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-2.2 1.8-4 4-4V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z" />
        </svg>
        
-       <div className="flex gap-0.5 mb-4">
+       <div className="flex gap-0.5 mb-3">
           {[...Array(5)].map((_, i) => (
              <IconStar key={i} size={12} />
           ))}
        </div>
 
-       <p className="text-text-on-dark/70 text-[13px] italic leading-relaxed mb-6 font-body">
+       <p className="text-text-on-dark/70 text-[12px] italic leading-relaxed mb-4 font-body line-clamp-3">
           &ldquo;{item.quote}&rdquo;
        </p>
 
-       <div className="h-[1px] w-full bg-white/10 mb-5" />
+       <div className="h-[1px] w-full bg-white/10 mb-4" />
 
-       <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-green-primary border border-green-bright/20 flex items-center justify-center text-[#F0EDE6] font-display font-bold text-[12px]">
+       <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-green-primary border border-green-bright/20 flex items-center justify-center text-[#F0EDE6] font-display font-bold text-[11px] flex-shrink-0">
              {item.name.split(' ').map(n => n[0]).join('')}
           </div>
-          <div className="flex flex-col">
-             <span className="text-[13px] font-semibold text-text-on-dark">{item.name}</span>
-             <span className="text-[11px] text-text-on-dark/40 font-body">{item.role}</span>
+          <div className="flex flex-col min-w-0">
+             <span className="text-[12px] font-semibold text-text-on-dark truncate">{item.name}</span>
+             <span className="text-[10px] text-text-on-dark/40 font-body truncate">{item.role}</span>
           </div>
        </div>
     </div>
@@ -60,22 +60,27 @@ function MarqueeCard({ item }: { item: typeof TESTIMONIALS[0] }) {
 export default function TestimonialMarquee() {
   const row1 = TESTIMONIALS.slice(0, 8)
   const row2 = TESTIMONIALS.slice(8, 16)
+  
+  // Calculate proper animation values based on card width
+  const cardWidth = 280 + 12 // 280px card + 12px margins (mx-1.5 = 6px each side)
+  const row1Distance = cardWidth * row1.length
+  const row2Distance = cardWidth * row2.length
 
   return (
     <section className="bg-bg-dark py-24 overflow-hidden relative">
       {/* Edge Fading Masks */}
       <div className="absolute inset-0 z-10 pointer-events-none" style={{
-        maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+        maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)'
       }} />
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-5">
         {/* Row 1 - Scroll Left */}
         <div className="flex overflow-hidden group">
           <motion.div 
-            animate={{ x: [0, -100 * row1.length] }} 
-            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-            className="flex hover:[animation-play-state:paused]"
+            animate={{ x: [0, -row1Distance] }} 
+            transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+            className="flex"
           >
             {[...row1, ...row1].map((item, i) => (
               <MarqueeCard key={i} item={item} />
@@ -84,11 +89,11 @@ export default function TestimonialMarquee() {
         </div>
 
         {/* Row 2 - Scroll Right */}
-        <div className="flex overflow-hidden group justify-end">
+        <div className="flex overflow-hidden group">
           <motion.div 
-            animate={{ x: [-100 * row2.length, 0] }} 
-            transition={{ duration: 52, repeat: Infinity, ease: 'linear' }}
-            className="flex hover:[animation-play-state:paused]"
+            animate={{ x: [-row2Distance, 0] }} 
+            transition={{ duration: 55, repeat: Infinity, ease: 'linear' }}
+            className="flex"
           >
             {[...row2, ...row2].map((item, i) => (
               <MarqueeCard key={i} item={item} />

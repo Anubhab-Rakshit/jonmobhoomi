@@ -17,10 +17,10 @@ const CITIES = [
 
 export default function GeoMapPreview() {
   return (
-    <div className="bg-[#101413] rounded-xl h-[330px] overflow-hidden relative group border-none shadow-xl flex-1">
+    <div className="bg-[#101413] rounded-[14px] h-[360px] overflow-hidden relative group border-none shadow-xl flex-1">
        {/* Background Map Animation */}
        <div className="absolute inset-0 flex items-center justify-center p-4">
-          <svg viewBox="0 0 400 420" className="h-full w-full object-contain opacity-50">
+          <svg viewBox="0 0 400 420" className="h-full w-full object-contain opacity-50" preserveAspectRatio="xMidYMid slice">
              <path
                d={INDIA_PATH_FLAT}
                fill="rgba(255,255,255,0.03)"

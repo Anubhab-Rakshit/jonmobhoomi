@@ -51,36 +51,36 @@ export default function ParcelList() {
           <motion.div
             key={parcel.id}
             whileHover={{ y: -2 }}
-            className="group relative bg-white border border-border rounded-xl flex shadow-sm hover:shadow-md transition-all h-[155px]"
+            className="group relative bg-white border border-border rounded-[14px] flex shadow-sm hover:shadow-md transition-all h-[160px]"
           >
             {/* Left Status Strip */}
             <div 
-              className="w-8 flex items-center justify-center flex-shrink-0"
+              className="w-8 flex items-center justify-center flex-shrink-0 rounded-l-[14px]"
               style={{ backgroundColor: parcel.status === 'Verified' ? '#1B824B' : parcel.status === 'Pending' ? '#D98934' : parcel.color }}
             >
-              <span className="-rotate-90 text-white font-medium text-[13px] tracking-wide whitespace-nowrap">
+              <span className="-rotate-90 text-white font-medium text-[12px] tracking-wide whitespace-nowrap">
                 {parcel.status}
               </span>
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 p-5 flex flex-col justify-center">
-               <p className="text-[12px] font-medium text-text-dark mb-0.5">
+            <div className="flex-1 p-6 flex flex-col justify-center">
+               <p className="text-[12px] font-medium text-text-muted mb-0.5">
                   {parcel.id === '1' ? 'Fraunes Number' : 'Survey Number'}
                </p>
-               <p className="font-display text-[32px] text-text-dark leading-none mb-1.5">
+               <p className="font-display text-[30px] text-text-dark leading-none mb-2">
                   {parcel.surveyNo}
                </p>
                <p className="text-[13px] text-text-dark">{parcel.location}</p>
-               <p className="text-[13px] text-text-dark mt-4">
+               <p className="text-[12px] text-text-muted mt-3">
                   NFT ID: {parcel.nftId}
                </p>
             </div>
 
             {/* Map Thumbnail & Buttons */}
-            <div className="w-[180px] p-4 flex flex-col justify-between items-end flex-shrink-0">
-               <div className="w-full h-[68px] bg-bg-darker relative flex items-center justify-center overflow-hidden rounded-lg">
-                  <svg viewBox="0 0 100 80" className="w-[100%] h-[100%]" style={{ filter: `drop-shadow(0 0 6px ${parcel.color}88)` }}>
+            <div className="w-[200px] p-5 flex flex-col justify-between items-end flex-shrink-0">
+               <div className="w-full h-[80px] bg-bg-darker relative flex items-center justify-center overflow-hidden rounded-[10px]">
+                  <svg viewBox="0 0 100 80" className="w-full h-full" preserveAspectRatio="xMidYMid slice" style={{ filter: `drop-shadow(0 0 6px ${parcel.color}88)` }}>
                      <rect width="100%" height="100%" fill="#0F2318"/>
                      {[20,40,60,80].map(v => (
                        <React.Fragment key={v}>
@@ -111,10 +111,10 @@ export default function ParcelList() {
                </div>
                
                <div className="flex gap-2 w-full justify-between mt-auto">
-                  <button className="flex-1 py-1 px-3 border border-border rounded-md text-[12px] text-text-dark hover:bg-zinc-50 flex items-center justify-center gap-1 transition-colors">
+                  <button className="flex-1 py-2 px-3 border border-border rounded-md text-[12px] text-text-dark hover:bg-zinc-50 flex items-center justify-center gap-1 transition-colors">
                      View <IconEye size={13} />
                   </button>
-                  <button className="flex-1 py-1 px-3 bg-[#1B3A2D] border border-[#1B3A2D] text-white rounded-md text-[12px] flex items-center justify-center gap-1 hover:bg-[#254F3D] transition-colors">
+                  <button className="flex-1 py-2 px-3 bg-[#1B3A2D] border border-[#1B3A2D] text-white rounded-md text-[12px] flex items-center justify-center gap-1 hover:bg-[#254F3D] transition-colors">
                      Actions <IconArrowRight size={13} />
                   </button>
                </div>

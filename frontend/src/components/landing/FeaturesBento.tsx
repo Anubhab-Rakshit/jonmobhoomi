@@ -63,8 +63,8 @@ function BentoCard({
 
 export default function FeaturesBento() {
   return (
-    <section id="features" className="bg-bg-page pt-[120px] pb-24 px-20">
-      <div className="max-w-[1280px] mx-auto">
+    <section id="features" className="bg-bg-page pt-[100px] pb-24 px-8">
+      <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
           <motion.p 
@@ -74,39 +74,39 @@ export default function FeaturesBento() {
           >
             Platform Features
           </motion.p>
-          <h2 className="font-display font-bold text-[clamp(36px,4.5vw,60px)] text-text-dark leading-tight">
+          <h2 className="font-display font-bold text-[clamp(36px,4.5vw,56px)] text-text-dark leading-tight">
             Everything land ownership <span className="accent-italic italic">should</span> be.
           </h2>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-12 gap-[14px]">
+        <div className="grid grid-cols-12 gap-4">
           
-          {/* CARD A: AI GIS */}
-          <BentoCard span="col-span-7 row-span-2" className="bg-bg-dark p-9 min-h-[480px]">
+          {/* CARD A: AI GIS - Large card left */}
+          <BentoCard span="col-span-7 row-span-2" className="bg-bg-dark p-8 min-h-[500px]">
             <div className="flex h-full">
-              <div className="w-[55%] flex flex-col justify-center">
+              <div className="w-1/2 flex flex-col justify-center pr-6">
                 <span className="text-[#74C69D] text-[11px] font-mono tracking-widest uppercase mb-4">
                   AI GIS Technology
                 </span>
                 <h3 className="font-display font-semibold text-[28px] text-text-on-dark leading-tight mb-4">
                   Satellite boundary detection
                 </h3>
-                <p className="text-text-on-dark/60 text-[14px] leading-[1.7] mb-8 pr-8">
+                <p className="text-text-on-dark/60 text-[14px] leading-[1.7] mb-8">
                   Proprietary AI models analyze multi-spectral satellite imagery to detect and verify land boundaries with precision and historical consistency.
                 </p>
                 <div className="flex items-center gap-2 bg-green-bright/15 text-green-glow px-4 py-2 rounded-pill w-fit border border-green-bright/10 font-mono text-[11px]">
                   Sentinel-2 · 3m · 98.7% accuracy
                 </div>
               </div>
-              <div className="w-[45%] relative flex items-center justify-center">
+              <div className="w-1/2 relative flex items-center justify-center">
                  <svg className="w-full h-full opacity-20 absolute inset-0">
                     <pattern id="grid-dark" width="20" height="20" patternUnits="userSpaceOnUse">
                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(240,237,230,0.1)" strokeWidth="0.5"/>
                     </pattern>
                     <rect width="100%" height="100%" fill="url(#grid-dark)" />
                  </svg>
-                 <svg viewBox="0 0 200 200" className="w-[80%] h-[80%] z-10">
+                 <svg viewBox="0 0 200 200" className="w-[70%] h-[70%] z-10">
                   <defs>
                     <filter id="bentoGlow">
                       <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -147,7 +147,7 @@ export default function FeaturesBento() {
                     />
                   ))}
                   
-                  {/* Grid lines (faint, technical feel) */}
+                  {/* Grid lines */}
                   {[50,100,150].map(v => (
                     <React.Fragment key={v}>
                       <line x1="0" y1={v} x2="200" y2={v} 
@@ -161,11 +161,11 @@ export default function FeaturesBento() {
             </div>
           </BentoCard>
 
-          {/* CARD B: Stellar Asset */}
-          <BentoCard span="col-span-5 row-span-2" className="bg-white border border-border p-8 min-h-[480px] card-depth">
+          {/* CARD B: Stellar Asset - Right column top */}
+          <BentoCard span="col-span-5 row-span-2" className="bg-white border border-border p-8 min-h-[500px]">
             <div className="h-full flex flex-col">
-               <div className="w-full h-[140px] bg-bg-darker rounded-[12px] mb-6 relative overflow-hidden flex items-center justify-center">
-                  <svg viewBox="0 0 100 100" className="w-[60%] h-[60%] parcel-glow">
+               <div className="w-full h-[150px] bg-bg-darker rounded-[12px] mb-6 relative overflow-hidden flex items-center justify-center">
+                  <svg viewBox="0 0 100 100" className="w-3/5 h-3/5" preserveAspectRatio="xMidYMid meet">
                     <path d="M25 25 L75 30 L80 75 L20 70 Z" fill="rgba(82,183,136,0.15)" stroke="#52B788" strokeWidth="2" strokeDasharray="4 2" />
                   </svg>
                </div>
@@ -191,17 +191,17 @@ export default function FeaturesBento() {
                </div>
 
                <div className="mt-auto flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-green-primary flex items-center justify-center text-white text-[12px] font-bold">RK</div>
-                  <div className="flex flex-col">
-                     <span className="text-[13px] font-semibold text-text-dark">Rajesh Kumar</span>
-                     <span className="text-[11px] font-mono text-text-muted">GB2N...9W3Z</span>
+                  <div className="w-8 h-8 rounded-full bg-green-primary flex items-center justify-center text-white text-[12px] font-bold flex-shrink-0">RK</div>
+                  <div className="flex flex-col min-w-0">
+                     <span className="text-[13px] font-semibold text-text-dark truncate">Rajesh Kumar</span>
+                     <span className="text-[11px] font-mono text-text-muted truncate">GB2N...9W3Z</span>
                   </div>
                </div>
             </div>
           </BentoCard>
 
           {/* CARD C: Kleros */}
-          <BentoCard className="bg-[#FFF3E0] border border-amber-land/15 p-7 flex flex-col justify-between h-[200px]">
+          <BentoCard span="col-span-4" className="bg-[#FFF3E0] border border-amber-land/15 p-6 flex flex-col justify-between min-h-[220px]">
              <div>
                 <h4 className="font-display font-semibold text-[18px] text-amber-land mb-3">Community Justice</h4>
                 <div className="grid grid-cols-5 gap-2 w-fit">
@@ -217,40 +217,40 @@ export default function FeaturesBento() {
                 </div>
              </div>
              <p className="text-amber-land/70 text-[12px] font-medium leading-tight">
-                11 of 15 jurors have reached consensus on survey boundary dispute #724.
+                11 of 15 jurors have reached consensus on dispute #724.
              </p>
           </BentoCard>
 
           {/* CARD D: Offline */}
-          <BentoCard className="bg-white border border-border p-7 flex flex-col justify-between h-[200px]">
-             <div className="flex gap-6 justify-between items-center mb-4">
-                <IconPhone size={32} className="text-text-muted opacity-40" />
+          <BentoCard span="col-span-4" className="bg-white border border-border p-6 flex flex-col justify-between min-h-[220px]">
+             <div className="flex gap-4 justify-between items-center mb-4">
+                <IconPhone size={28} className="text-text-muted opacity-40" />
                 <motion.div
                   animate={{ x: [0, 40, 80, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                   className="w-1.5 h-1.5 rounded-full bg-green-primary"
                 />
-                <IconTablet size={32} className="text-text-muted opacity-40" />
-                <IconBuilding size={32} className="text-text-muted opacity-40" />
+                <IconTablet size={28} className="text-text-muted opacity-40" />
+                <IconBuilding size={28} className="text-text-muted opacity-40" />
              </div>
              <div>
                 <h4 className="font-display font-semibold text-[18px] text-text-dark mb-1">Last-Mile Access</h4>
                 <p className="text-text-muted text-[12px] leading-tight">
-                   Seamlessly sync data via mobile app, tab, or local village kiosks.
+                   Sync via mobile app, tab, or village kiosks.
                 </p>
              </div>
           </BentoCard>
 
           {/* CARD E: Multi-sig */}
-          <BentoCard className="bg-white border border-border p-7 flex flex-col justify-between h-[200px]">
+          <BentoCard span="col-span-4" className="bg-white border border-border p-6 flex flex-col justify-between min-h-[220px]">
              <div className="flex items-center gap-4 mb-4">
                 <div className="flex flex-col items-center gap-1">
-                   <div className="w-10 h-10 rounded-full border border-green-bright flex items-center justify-center">
+                   <div className="w-10 h-10 rounded-full border border-green-bright flex items-center justify-center flex-shrink-0">
                       <IconCheck size={14} className="text-green-bright" />
                    </div>
                    <span className="text-[10px] uppercase font-bold text-green-bright">Owner</span>
                 </div>
-                <div className="flex-1 h-[1px] bg-border relative overflow-hidden">
+                <div className="flex-1 h-[1px] bg-border relative overflow-hidden min-w-0">
                    <motion.div 
                     animate={{ x: ['-100%', '300%'] }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
@@ -258,7 +258,7 @@ export default function FeaturesBento() {
                    />
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                   <div className="w-10 h-10 rounded-full border border-green-bright flex items-center justify-center">
+                   <div className="w-10 h-10 rounded-full border border-green-bright flex items-center justify-center flex-shrink-0">
                       <IconCheck size={14} className="text-green-bright" />
                    </div>
                    <span className="text-[10px] uppercase font-bold text-green-bright">Govt</span>
@@ -267,7 +267,7 @@ export default function FeaturesBento() {
              <div>
                 <h4 className="font-display font-semibold text-[18px] text-text-dark mb-1">Multi-sig Safety</h4>
                 <p className="text-text-muted text-[12px] leading-tight">
-                   Dual-approval required for all land modifications on the Stellar network.
+                   Dual-approval for all land modifications.
                 </p>
              </div>
           </BentoCard>
