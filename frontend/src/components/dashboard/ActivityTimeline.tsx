@@ -12,21 +12,21 @@ const EVENTS = [
 
 export default function ActivityTimeline() {
   return (
-    <div className="bg-[#FAF5ED] border border-border rounded-lg p-5 h-64 flex flex-col">
-      <div className="flex justify-between items-center mb-4">
-         <h2 className="font-display font-bold text-base text-text-dark">
+    <div className="bg-[#FAF5ED] border border-border rounded-xl p-6 h-auto flex flex-col">
+      <div className="flex justify-between items-center mb-6">
+         <h2 className="font-display font-bold text-lg text-text-dark">
             Activity Timeline
          </h2>
-         <div className="flex gap-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FEBC2E]" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#52B788]" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1B3A2D]" />
+         <div className="flex gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-[#FEBC2E]" />
+            <div className="w-2 h-2 rounded-full bg-[#52B788]" />
+            <div className="w-2 h-2 rounded-full bg-[#1B3A2D]" />
          </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto no-scrollbar relative pr-2">
+      <div className="flex-1 overflow-y-auto no-scrollbar relative pr-3 max-h-64">
          {/* Vertical Line */}
-         <div className="absolute left-[2px] top-2 bottom-4 w-px bg-border" />
+         <div className="absolute left-[3px] top-2 bottom-4 w-px bg-border" />
 
          <div className="flex flex-col">
             {EVENTS.map((event, i) => (
@@ -36,15 +36,15 @@ export default function ActivityTimeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="relative pl-5 pb-4 last:pb-0"
+                className="relative pl-6 pb-5 last:pb-0"
               >
                 {/* Dot */}
                 <div 
-                  className="absolute left-[-4px] top-1 w-2 h-2 rounded-full z-10"
+                  className="absolute left-[0px] top-[5px] w-2 h-2 rounded-full z-10"
                   style={{ backgroundColor: event.color }}
                 />
 
-                <div className="flex justify-between items-center mb-0.5 gap-2">
+                <div className="flex justify-between items-center mb-1 gap-3">
                    <span className="font-mono text-xs text-text-dark truncate">
                       {event.address}
                    </span>
@@ -53,7 +53,7 @@ export default function ActivityTimeline() {
                    </span>
                 </div>
                 
-                <h4 className="text-xs text-[#1B3A2D] font-medium">
+                <h4 className="text-sm text-[#1B3A2D] font-medium">
                    {event.title}
                 </h4>
               </motion.div>
